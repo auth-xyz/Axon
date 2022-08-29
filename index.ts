@@ -1,2 +1,2 @@
-import * as Main from './src/main';
-Main.default.initialize();
+import * as Client from './src/modules/#events';
+Client.default.init();

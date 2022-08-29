@@ -1,0 +1,27 @@
+const Command = {
+    // String Properties
+
+    __Name: '', 
+    __Desc: '',
+
+    // Bool Properties
+
+    __IsOwnerOnly   : false, // True for bot owner only
+    __IsServerOnly  : false, // True for server owner only
+
+    // Array Properties
+
+    $PERMISSIONS    : [],
+    $ALIASES        : [],
+
+    // Main Function
+
+    async Main(message,args) {
+        // Code's function goes here
+        
+        
+        return;
+    }
+}
+
+export default Command;
