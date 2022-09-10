@@ -1,4 +1,3 @@
-import { connection } from "../database/connection";
 import { client, commands } from "./#client";
 import { Handler } from "./#handler";
 
@@ -10,7 +9,6 @@ import { TextChannel } from "discord.js";
 
 export default class $events {
   public static init() {
-    connection.connect();
     client.on("ready", () => {
       console.log(`[127.0.0.1] : [${client.user.username}] : online`);
     });

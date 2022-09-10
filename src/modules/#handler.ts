@@ -6,7 +6,6 @@ export async function Handler(message: any, command: any, args: any) {
     const cmds = commands.get(command);    
     if (command.length <= 1) return;
     const channel = client.channels.cache.find(channel => channel.id === "1015128778747420722");
-    (channel as TextChannel).send(`\`[127.0.0.1] : (${message.author.username}) User used a command\``)
 
 
     // Get the command properties and check if the user has them
