@@ -1,10 +1,10 @@
 {
   "dependencies": {
-    "discord.js": "^14.2.0",
-    "fs": "0.0.1-security"
+    "discord.js": "^14.3.0",
+    "fs": "0.0.1-security",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "@types/node": "*",
     "chalk": "^5.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.2"

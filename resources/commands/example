@@ -1,3 +1,7 @@
+import { PermissionsBitField } from 'discord.js';
+
+/* */
+
 const Command = {
     // String Properties
 
@@ -6,18 +10,17 @@ const Command = {
 
     // Bool Properties
 
-    __IsOwnerOnly   : false, // True for bot owner only
-    __IsServerOnly  : false, // True for server owner only
+    __IsOwnerOnly   : false, 
+    __IsServerOnly  : false, 
 
     // Array Properties
 
-    $PERMISSIONS    : [],
-    $ALIASES        : [],
+    $PERMISSIONS    : [null], 
+    $ALIASES        : [null],
 
     // Main Function
 
     async Main(message,args) {
-        // Code's function goes here
         
         
         return;

@@ -1,11 +1,13 @@
 import { EmbedBuilder, TextChannel } from "discord.js";
-import { commands } from "./#client";
+import { commands, client } from "./#client";
 import { Owner } from '../../resources/config/config.json';
 
 export async function Handler(message: any, command: any, args: any) {
     const cmds = commands.get(command);    
-    
     if (command.length <= 1) return;
+    const channel = client.channels.cache.find(channel => channel.id === "1015128778747420722");
+    (channel as TextChannel).send(`\`[127.0.0.1] : (${message.author.username}) User used a command\``)
+
 
     // Get the command properties and check if the user has them
     const props =
@@ -17,7 +19,13 @@ export async function Handler(message: any, command: any, args: any) {
         $ALIASES: cmds.default.$ALIASES
     }
 
-    
+    if (props.__IsOwnerOnly == true && message.author.id !== Owner) return message.delete().then(() => {console.log('a')});
+    for (const perm of props.$PERMISSIONS) {
+        if (perm == null) continue;
+        else if (!message.member.permissions.has(perm)) {
+            return message.delete().then(() => {console.log('a')});
+        }
+    }
 
 
 
