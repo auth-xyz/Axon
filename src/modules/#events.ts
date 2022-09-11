@@ -35,7 +35,7 @@ export default class $events {
 
           commands.set(name, cmd);
         }
-        Handler(message, command, args).then(() => {
+        Handler(message, command).then(() => {
           console.log(`[127.0.0.1] : Loaded ${commands.size}`);
         });
       }

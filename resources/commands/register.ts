@@ -29,27 +29,48 @@ const Command = {
       user_roles: message.member._roles,
     };
 
+
+
+
+
+    const embed = new EmbedBuilder()
+      .setTitle(`Registration Successful`)
+      .setDescription(
+        `\`\`\`json\n{ "status": 200, "database_status": 200 }\`\`\``
+      )
+      .setThumbnail(message.author.avatarURL())
+      .addFields(
+        { name: "**User ID**", value: `\`${props.user_id}\``, inline: true },
+        {
+          name: "**User Name**",
+          value: `\`${props.user_name}\``,
+          inline: true,
+        },
+        {
+          name: "**User Roles**",
+          value: `\`${props.user_roles}\``,
+          inline: true,
+        }
+      )
+      .setFooter({ text: "© 2022, Axon Project" });
+
+    const _player_id = message.guild.roles.cache.get("1015130091510050848");
+    message.channel.send({ embeds: [embed] }).then(() => {
+      message.delete()
+      message.channel.send(`${message.author}, You may now use this to answer the ?????????.`)
+      message.member.roles.add(_player_id);
+    });
+
+
     Database.collection("Registration").insertOne(props, (err, res) => {
       if (err) throw err;
       console.log(
         `[127.0.0.1] : Database-Request ${JSON.stringify(res, null, "\t")}`
       );
     });
+    /* 
 
-    const embed = new EmbedBuilder()
-    .setTitle(`Registration Successful`)
-    .setDescription(`\`\`\`json\n{ "status": 200, "database_status": 200 }\`\`\``)
-    .setThumbnail(message.author.avatarURL())
-    .addFields(
-      { name: "**User ID**", value: `\`${props.user_id}\``, inline: true },
-      { name: "**User Name**", value: `\`${props.user_name}\``, inline: true },
-      { name: "**User Roles**", value: `\`${props.user_roles}\``, inline: true }
-    )
-    .setFooter({text: "© 2022, Axon Project"});
-
-    message.channel.send({ embeds: [embed] }).then(() => {
-        message.reply("You can now view your user-card with \`a!card\`\nOr use \`a!sign\` to add a signature to your user-card!");
-    })
+    */
   },
 };
 
