@@ -1,2 +1,2 @@
-import * as Client from './src/modules/#events';
+import * as Client from './source/modules/#events';
 Client.default.init();
